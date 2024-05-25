@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SARI Official Website</title>
+<meta charset="UTF-8">
+<meta name="description" content="SARI GNSS online time series analysis software">
+<meta name="keywords" content="SARI, GNSS, time series">
+<meta name="author" content="Alvaro Santamaria">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="0rdsRBefyoPhZBIoNkgiVyMrTS2JvkDou_yW2dkaYYs" />
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300">
+<style>
+body,h1,h2,h3,h4,h5,h6 {
+	font-family: "Open Sans", "Tahoma", sans-serif;
+}
+h1 {
+	font-size: 10vw;
+}
+body, html {
+	height: 100%;
+	margin: 0;
+}
+.backgroundImage {
+  height: 30%;
+  background-image: url('header.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.backgroundImage:hover {
+  height: 30%;
+  background-image: url('header_inv.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+.selected {
+	font-weight: bold;
+}
+.underFigure {
+	font-weight: normal;
+	text-align: left;
+}
+a:hover {
+  font-weight: bold;
+}
+@media (max-width: 1024px) and (min-width:601px) {
+    .w3-hide-medium {
+        display:none!important
+    }
+}
+@media screen and (max-width: 769px) {
+    h1 {
+        font-size: 15vw;
+    }
+}
+@media screen and (max-width: 426px) {
+    h1 {
+        font-size: 20vw;
+    }
+}
+</style>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script>
+function showHide(el) {
+	var x = document.getElementById(el);
+	var x1 = document.getElementById("example1");
+	var x2 = document.getElementById("example2");
+	var x3 = document.getElementById("example3");
+	var x4 = document.getElementById("example4");
+	if (x.className.indexOf("w3-show") == -1) {
+		if (x != x1) {
+			x1.className = x1.className.replace(" w3-show", "");
+		}
+		if (x != x2) {
+			x2.className = x1.className.replace(" w3-show", "");
+		}
+		if (x != x3) {
+			x3.className = x1.className.replace(" w3-show", "");
+		}
+		if (x != x4) {
+			x4.className = x1.className.replace(" w3-show", "");
+		}
+		x.className += " w3-show selected";
+	} else {
+		x.className = x.className.replace(" w3-show selected", "");
+	}
+	event.preventDefault();
+}
+function selectLink(el) {
+	var x = document.getElementById(el);
+	var x1 = document.getElementById("link1");
+	var x2 = document.getElementById("link2");
+	var x3 = document.getElementById("link3");
+	var x4 = document.getElementById("link4");
+	if (x.className.indexOf("selected") == -1) {
+		if (x != x1) {
+			x1.className = x1.className.replace(" selected", "");
+		}
+		if (x != x2) {
+			x2.className = x1.className.replace(" selected", "");
+		}
+		if (x != x3) {
+			x3.className = x1.className.replace(" selected", "");
+		}
+		if (x != x4) {
+			x4.className = x1.className.replace(" selected", "");
+		}
+		x.className += " selected";
+	} else {
+		x.className = x.className.replace(" selected", "");
+	}
+	event.preventDefault();
+}
+function scroll2(el) {
+	const section = document.getElementById(el);
+	const navbarHeight = 60;
+	window.scrollTo({
+		top: section.offsetTop - navbarHeight,
+		behavior: 'smooth',
+        });
+	event.preventDefault();
+}
+function showSARIpage() {
+	var x = document.getElementById("SARIpage");
+	const navbarHeight = 60;
+	if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+		window.scrollTo({
+			top: x.offsetTop - navbarHeight,
+			behavior: 'smooth',
+        });
+	} else {
+		event.preventDefault();
+	}
+}
+</script>
+</head>
+<body class="w3-light-grey">
+
+<!-- Navigation (Stays on Top) -->
+<div class="w3-top w3-bar w3-black w3-padding w3-card w3-wide w3-xlarge">
+	<!-- Right-sided navbar links. Hide them on small screens -->
+	<div class="w3-right w3-hide-small">
+		<a href="https://github.com/alvarosantamariagomez/sari" target="_blank" class="w3-bar-item w3-button">GitHub</a>
+		<a href="#examples" onclick="scroll2('examples')" class="w3-bar-item w3-button">Examples</a>
+		<a href="#about" onclick="scroll2('about')" class="w3-bar-item w3-button">About</a>
+		<a href="#run" onclick="scroll2('run')" class="w3-bar-item w3-button">Run</a>
+	</div>
+</div>
+
+<!-- Header image -->
+<div class="w3-display-container backgroundImage">
+	<div class="w3-display-bottomright">
+		<span class="w3-tag w3-small">Scalogram of the detrended PIMI00FRA north series</span>
+	</div>
+	<div class="w3-display-middle w3-section w3-center">
+		<h1>SARI</h1>
+	</div>
+</div>
+
+<!-- Start Content -->
+<div id="home" class="w3-content w3-white">
+
+<div class="w3-container w3-section">
+	<h2>What is SARI?</h2>
+	<p>
+	SARI is an open-source R/Shiny app that makes it easy for anyone to analyze discrete time series data interactively on a web browser.<br>
+	The app is designed with a user-friendly interface, making it simple to use.<br>
+	SARI focuses on GNSS position time series, but it can also be used with other types of time series data.<br>
+	This includes tide gauge records, zenith tropospheric delay series, surface mass loading model predictions, gravimetry or Earth rotation series, and more. 
+	</p>
+</div>
+
+<!-- Examples -->
+<div id="examples" class="w3-container w3-section">
+	<h2>Examples of series analyses with SARI</h2>
+</div>
+<div class="w3-container w3-section w3-row w3-center" style="width: 100%; margin: auto;">
+	<a href="#" id="link1" onclick="showHide('example1'); selectLink('link1'); scroll2('examples')" class="w3-quarter w3-padding-large">Example 1<br>GNSS & earthquakes</a>
+	<a href="#" id="link2" onclick="showHide('example2'); selectLink('link2'); scroll2('examples')" class="w3-quarter w3-padding-large">Example 2<br>GNSS & mass loading</a>
+	<a href="#" id="link3" onclick="showHide('example3'); selectLink('link3'); scroll2('examples')" class="w3-quarter w3-padding-large">Example 3<br>UT1-UTC and LOD series</a>
+	<a href="#" id="link4" onclick="showHide('example4'); selectLink('link4'); scroll2('examples')" class="w3-quarter w3-padding-large">Example 4<br>Sea-level change</a>
+</div>
+
+<div id="example1" class="w3-hide">
+	<div class="w3-row-padding w3-center">
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="SPOTGINS_CONZ00CHL.enu_East.fit.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Estimated daily mean position changes at the CONZ00CHL (Chile) station in the east (positive) - west (negative) direction from the <a href="https://www.poleterresolide.fr/geodesy-plotter/#/station/CONZ00CHL" target="_blank">SPOTGINS solution</a>.<br>
+					On February 27, 2010, the Mw 8.8 Maule earthquake provoked a co-seismic displacement of 294.4 cm of the station to the west, followed by a post-seismic displacement of 20.5 cm.<br>
+					The red curve represents the fitted kinematic model composed of a linear trend, offsets, exponential and logarithmic decays.<br>
+					The blue line represents the South America's plate motion extracted from the NNR-GSRM v2.1 model (Kreemer et al. 2014).<br>
+					The vertical cyan lines represent equipment changes recorded in the station sitelog.
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="SPOTGINS_CONZ00CHL.enu_East.psd.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Green: power spectrum of the residual daily mean position time series from the fit in the top figure.<br>
+					The standard deviation of the residual series (not shown) is only 1.9 mm.<br>
+					Pink: power spectrum of the noise model fitted to the residual series with MLE.<br>
+					The estimated noise model is composed of 0.7 mm of white noise and 5.5 mm of power-law noise with a spectral index (slope) of -1.13.<br>
+					The estimated noise model increases the formal uncertainty of the linear trend by almost eleven times, compared to a white noise only estimate. 
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
+				Do the analysis of this example here<br>
+				<a href="https://alvarosg.shinyapps.io/sari?server=FORMATER&product=SPOTGINS_POS&station=CONZ00CHL" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATER&product=SPOTGINS_POS&station=CONZ00CHL</a>
+			</div>
+	</div>
+</div>
+
+<div id="example2" class="w3-hide">
+	<div class="w3-row-padding w3-center">
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="SPOTGINS_NAUS00BRA.enu_Up.fit.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Black: weekly-averaged height change estimates at the NAUS00BRA (Brazil) station from the <a href="https://www.poleterresolide.fr/geodesy-plotter/#/station/NAUS00BRA" target="_blank">SPOTGINS solution</a>.<br>
+					Red: fitted Kalman filter model composed of a time-variable linear trend and a time-variable annual signal of amplitude between 2.1 and 3.8 cm.<br>
+					Yellow: low-pass filtered weekly height changes with the Vondrak smoother.<br>
+					Green: estimated monthly height changes at the same location from the GRACE NASA GSFC mascons solution obtained from the <a href="http://loading.u-strasbg.fr/index.php" target="_blank">EOST loading service</a>, for comparison.<br>
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="SPOTGINS_NAUS00BRA.enu_Up.res.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Black: weekly height differences between the GNSS position time series and the Kalman filter model of the top figure.<br>
+					The standard deviation of the differences is 3.5 mm and most of it is concentrated at periods from 2 to 5 years. The time-variable linear trend captures the majority of the series variability beyond 5 years.<br>
+					Yellow: weekly height differences between the GNSS position time series and the Vondrak smoother of the top figure.
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
+			Do the analysis of this example here<br>
+			<a href="https://alvarosg.shinyapps.io/sari?server=FORMATER&product=SPOTGINS_POS&station=NAUS00BRA" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATER&product=SPOTGINS_POS&station=NAUS00BRA</a>
+			</div>
+	</div>
+</div>
+
+<div id="example3" class="w3-hide">
+	<div class="w3-row-padding w3-center">
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="14C04_IAU2000_UT1-UTC_1972.fit.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Black: daily UT1-UTC differences in ms from the C0414 series of the <a href="https://datacenter.iers.org/eop.php" target="_blank">IERS combined Earth orientation parameter</a> solution.<br>
+					Each discontinuity represents a leap second added to the UTC time to keep the synchronization with the irregular Earth's rotation speed.<br>
+					When the UT1-UTC differences are stable around a constant value, it means the Earth's rotation speed (given by UT1) equals the standard rotation speed of 1 revolution in 24 h (given by UTC). This is observed only around 2020 and during very short periods of time occurring with some regularity since 2000. The overall negative trend clearly shows that the Earth's rotation speed is slower than the standard speed, which results in days slightly longer than 24 hours by a few ms.<br>
+					Red: Kalman filter model composed of a time-variable linear trend and the leap second offsets at the dates indicated in the IERS Bulletin C. These were fixed (not estimated) to their known value of 1000 ms.<br>
+					When the leap seconds are removed, the UT1-UTC series reverts to UT1-TAI series, which was then fitted with a time-variable linear trend. Changes in the UT1-TAI trend represent changes in the duration of the day (see the bottom figure).
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="14C04_IAU2000_dLOD_1972.fit.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Black: the sign-reversed UT1-TAI time-variable linear trend estimates in ms/day from the Kalman fit of the top figure.<br>
+					The UT1-TAI rate with a reversed sign is known as the excess of length of day (LOD). Positive LOD values represent days longer than 24 hours in ms, and vice versa.<br>
+					Green: the daily LOD series in ms/day from the official IERS C0414 combined solution, for comparison.<br>
+					The seasonal trend variations of the UT1-TAI series were not properly accounted for by the a priori state variance and the process/observation noise ratio, so the Kalman filter takes some time to adjust.<br>
+					Yellow: low-pass filtered daily LOD series with the Vondrak smoother.<br>
+					While the days are generally longer than 24 h over the observed period, a negative trend in the LOD series means the Earth's rotation has been accelerating, which produces shorter days closer to the standard duration of 24 h. In May 2020, the smoothed LOD series crossed to negative values, being the first time in the space geodesy era that the duration of the day is systematically shorter than 24 h.
+					</p>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div id="example4" class="w3-hide">
+	<div class="w3-row-padding w3-center">
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="1.rlrdata.fit2.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Black: monthly mean sea-level series at the Brest station since 1807 obtained from the PSMSL server. This is probably the longest geodetic record in the world.<br>
+					Blue: inverse of the GIA vertical land motion extracted from the Caron and Ivins 2019 model: -1.03 mm/yr (subsidence).<br>
+					The predicted GIA subsidence rate agrees well with multiple estimates of the GNSS vertical land motion rates, with nearly 20 years of observations at this site and with an average value of -0.78 +/- 0.17 mm/yr (not shown).<br>
+					Red: least-squares fit of a quadratic polynomial showing an average sea-level rate of 1.0 +/- 0.1 mm/yr and an acceleration of 1.38 +/- 0.04 mm/yr/century.<br>
+					Due to the acceleration, the relative or coastal sea level is rising around 2.5 mm/yr today, and might exceed 5 mm/yr in less than 200 years if the estimated acceleration value does not change.
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-card-2">
+				<div class="w3-container w3-padding">
+					<img src="1.rlrdata.fit.png" alt="SARI example" width="100%" class="w3-image"/>
+				</div>
+				<div class="w3-container w3-padding underFigure">
+					<p>
+					Same as the top figure, but the tide gauge record has been corrected for the inverse of the GIA subsidence rate before fitting the same least-squares model.<br>
+					The estimated acceleration remains unchanged and, while the absolute or climate-driven mean sea-level rate is now close to zero, the banana shape of the series indicates that the sea-level change has changed sign, from falling to rising, over the past two hundred years.<br>
+					In addition, the histogram of the fit residuals (not shown) is slightly skewed towards higher sea levels, i.e., extreme sea levels are abnormaly more likely, especially towards the end of the series.
+					</p>
+				</div>
+			</div>
+			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
+			Do the analysis of this example here<br>
+			<a href="https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1" target="_blank">https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1</a>
+			</div>
+	</div>
+</div>
+
+<!-- About -->
+<div id="about" class="w3-container w3-section">
+	<h2>About SARI</h2>
+	<p>
+	SARI is being developped since 2017 by <a href="https://www.get.omp.eu/author/alvaro-santamaria/" target="_blank">me</a>, with roughly monthly updates.<br>
+	The history of changes and corrections is available in the <a href="https://github.com/alvarosantamariagomez/sari/blob/main/www/changelog.md" target="_blank">changelog</a> file.
+	</p>
+	<p>
+	A detailed SARI documentation can be found <a href="https://github.com/alvarosantamariagomez/sari/blob/main/www/about.pdf" target="_blank">here</a>.<br>
+	A ~40 min video tutorial is also available <a href="https://youtu.be/Zt61jzehhoc" target="_blank">here</a>.<br>
+	This video tutorial was made with an old SARI version and doesn't include the latest additions and corrections, but it is still valid to learn the general usage of the app.
+	</p>
+	<p>
+	For comments, questions or contributions: please open a ticket on <a href="https://github.com/alvarosantamariagomez/sari" target="_blank">GitHub</a>.
+	</p>
+	<p>
+	<h2>How to cite SARI?</h2>
+	Santamaría-Gómez, A. (2019). SARI: interactive GNSS position time series analysis software. GPS solutions, 23:52. DOI: <a href="https://link.springer.com/article/10.1007/s10291-019-0846-y" target="_blank">10.1007/s10291-019-0846-y</a>
+	</p>
+</div>
+
+<!-- SARIpage app -->
+<div id="run" class="w3-container w3-section">
+	<h2>How to run SARI?</h2>
+	<p>
+	SARI can be run free of charge on your web browser from a public online server.<br>
+	The online access is supported by the <a href="https://renag.resif.fr/en/" target="_blank">National Permanent GNSS Network (RENAG)</a>.
+	</p>
+	<p>
+	There is a finite number of simultaneous connections that can be run by the online server, which depends on the user load.<br>
+	For standard user loads (i.e., excluding noise analysis with spectral index, automatic discontinuity search, and large wavelet analysis), up to 24 parallel users can be sustained, possibly a few more than that. However, it is not very clear how many simultaneous connections the online server allows from the same inbound IP address; that limit may be set somewhere between 10 and 15.<br>
+	If you're using SARI in a class with many people and you start getting connection refusals, you should change your outbound IP address (for instance, connect through a smartphone hotspot) or use SARI on a local server (RStudio or Docker).
+	</p>
+	If you have a public web server that distributes GNSS series, or any other type, and want users to analyze them on SARI with just a button click, simply add a link to your web server pointing to this address:<br>
+	<code class="w3-codespan w3-section" style="word-wrap: break-word;">https://alvarosg.shinyapps.io/sari?server=MyServer&product=MyProduct&series=MyStation</code><br>
+	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that need to be implemented on SARI (see the available servers below with the remote series selector).
+	</p>
+	<p>
+	The following web servers have already implemented SARI on their interface:
+	</p>
+	<div class="w3-container w3-section w3-row w3-center">
+		<a href="https://renag.resif.fr/en/" target="_blank"><img src="eposfr-renag_mobile.png" alt="RENAG" class="w3-third w3-padding-large"></a>
+		<a href="https://www.sonel.org/?lang=en" target="_blank"><img src="logo-sonel-no-cible.svg" alt="SONEL" class="w3-third w3-padding-large"></a>
+		<a href="https://www.poleterresolide.fr/geodesy-plotter/#/?bounds=-8.712158203125002,40.32141999593439,19.215087890625004,50.57626025689928" target="_blank"><img src="logo-formater-transparent.png" alt="FORMATER" class="w3-third w3-padding-large"></a>
+	</div>
+	
+	<div  class="w3-hide-medium w3-hide-small">
+		<p>
+		To start using SARI right away:
+		</p>
+		<ul>
+			<li>
+				click on the button below to open a new online session on your web browser and then upload a series from your computer:<br>
+				<a href="https://alvarosg.shinyapps.io/sari" target="_blank" class="w3-panel w3-padding w3-button w3-black w3-round-large">
+				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
+				Start a session
+				</a>
+			</li>
+			<li>
+				or click on the button below to load the remote series selector (the loading of the app takes a few seconds), then choose a server, product, and station, and open it on a new online session on your web browser:<br>
+				<a href="https://alvarosg.shinyapps.io/SARIpage/" target="SARIpage" onclick="showSARIpage();" class="w3-panel w3-padding w3-button w3-black w3-round-large">
+				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
+				Remote series selector
+				</a>
+			</li>
+		</ul>
+		<div id="SARIpage" class="w3-center w3-hide" style="overflow: visible;">
+			<iframe name="SARIpage" title="SARIpage app" height="400px" width="100%" frameborder="no"> </iframe>
+		</div>
+	</div>
+</div>
+
+<!-- End Content -->
+</div>
+
+</body>
+</html>
