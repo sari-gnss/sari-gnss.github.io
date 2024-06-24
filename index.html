@@ -371,9 +371,10 @@ function showSARIpage() {
 	For standard user loads (i.e., excluding noise analysis with spectral index, automatic discontinuity search, and large wavelet analysis), up to 24 parallel users can be sustained, possibly a few more than that. However, it is not very clear how many simultaneous connections the online server allows from the same inbound IP address; that limit may be set somewhere between 10 and 15.<br>
 	If you're using SARI in a class with many people and you start getting connection refusals, you should change your outbound IP address (for instance, connect through a smartphone hotspot) or use SARI on a local server (RStudio or Docker).
 	</p>
+	<p>
 	If you have a public web server that distributes GNSS series, or any other type, and want users to analyze them on SARI with just a button click, simply add a link to your web server pointing to this address:<br>
 	<code class="w3-codespan w3-section" style="word-wrap: break-word;">https://alvarosg.shinyapps.io/sari?server=MyServer&product=MyProduct&series=MyStation</code><br>
-	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that need to be implemented on SARI<span class="w3-hide-medium w3-hide-small">(see the available servers below with the remote series selector)</span>.
+	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that need to be implemented on SARI<span class="w3-hide-medium w3-hide-small"> (see the available servers below with the remote series selector)</span>.
 	</p>
 	<p>
 	The following GNSS web servers have already implemented SARI on their interface:
