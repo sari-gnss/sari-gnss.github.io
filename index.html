@@ -73,6 +73,7 @@ function showHide(el) {
 	var x2 = document.getElementById("example2");
 	var x3 = document.getElementById("example3");
 	var x4 = document.getElementById("example4");
+	var x5 = document.getElementById("example5");
 	if (x.className.indexOf("w3-show") == -1) {
 		if (x != x1) {
 			x1.className = x1.className.replace(" w3-show", "");
@@ -86,6 +87,9 @@ function showHide(el) {
 		if (x != x4) {
 			x4.className = x1.className.replace(" w3-show", "");
 		}
+		if (x != x5) {
+			x5.className = x1.className.replace(" w3-show", "");
+		}
 		x.className += " w3-show selected";
 	} else {
 		x.className = x.className.replace(" w3-show selected", "");
@@ -98,6 +102,7 @@ function selectLink(el) {
 	var x2 = document.getElementById("link2");
 	var x3 = document.getElementById("link3");
 	var x4 = document.getElementById("link4");
+	var x5 = document.getElementById("link5");
 	if (x.className.indexOf("selected") == -1) {
 		if (x != x1) {
 			x1.className = x1.className.replace(" selected", "");
@@ -110,6 +115,9 @@ function selectLink(el) {
 		}
 		if (x != x4) {
 			x4.className = x1.className.replace(" selected", "");
+		}
+		if (x != x5) {
+			x5.className = x1.className.replace(" selected", "");
 		}
 		x.className += " selected";
 	} else {
