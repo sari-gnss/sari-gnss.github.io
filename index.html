@@ -206,7 +206,7 @@ function showSARIpage() {
 				<div class="w3-container w3-padding underFigure">
 					<p>
 					Estimated daily mean position changes at the CONZ00CHL (Chile) station in the east (positive) - west (negative) direction from the <a href="https://www.poleterresolide.fr/geodesy-plotter/#/station/CONZ00CHL" target="_blank">SPOTGINS solution</a>.<br>
-					On February 27, 2010, the Mw 8.8 Maule earthquake caused a co-seismic displacement of 294.4 &#177; 0.1 cm to the west at the station location. This was followed by a post-seismic displacement of 20.5 &#177; 0.1 cm over the subsequent years. The post-seimic deformation was interrupted by the Mw 6.9 Tomé earthquake on February 11, 2011, which added an additional 2.3 &#177; 0.1 cm of displacement.<br>
+					On February 27, 2010, the Mw 8.8 Maule earthquake caused a co-seismic displacement of 293.2 &#177; 0.1 cm to the west at the station location. This was followed by a post-seismic displacement of 25.6 &#177; 0.1 cm over the subsequent years. The post-seimic deformation was interrupted by the Mw 6.9 Tomé earthquake on February 11, 2011, which added an additional 2.6 cm of displacement.<br>
 					The red curve represents the fitted kinematic model, which consists of a linear trend, offsets, and exponential and logarithmic decays.<br>
 					The blue line represents South America's mean plate motion extracted from the NNR-GSRM v2.1 model (Kreemer et al. 2014). The difference between the blue and red lines would represent the evolution of the observed local crustal deformation over time.<br>
 					The vertical cyan lines represent equipment changes recorded in the station's sitelog. Antenna changes can sometimes introduce apparent instantaneous displacements due to calibration limitations, which may be similar in magnitude to small or moderate earthquakes.
@@ -221,9 +221,9 @@ function showSARIpage() {
 					<p>
 					Green: power spectrum of the residual daily mean position time series obtained from the fitted model shown in the top figure.<br>
 					The power spectrum shows the distribution of unmodelled series variability per unit of frequency along different periods of time. As is common with GNSS position series, the power of unmodelled long-period variations dominates the spectrum. The exact cause of this common spectral pattern is not fully understood, but the most likely suspect is related to orbit mismodelling.<br>
-					The standard deviation of the residual series (not shown) is only 1.9 mm. This represents the precision or repeatability of the estimated daily mean positions with respect to the fitted kinematic model. That's about the width of a crayon point on a sheet of paper of tens of millions of km<sup>2</sup> constantly moving underneath (the plate).<br>
+					The standard deviation of the residual series (not shown) is only 1.8 mm. This represents the precision or repeatability of the estimated daily mean positions with respect to the fitted kinematic model. That's about the width of a crayon point on a sheet of paper of tens of millions of km<sup>2</sup> constantly moving underneath (the plate).<br>
 					Pink: power spectrum of the noise model fitted to the residual series using Maximum Likelihood Estimation (MLE).<br>
-					The estimated noise model is composed of 0.8 &#177; 0.1 mm of white noise at short periods and 5.0 &#177; 0.2 mm of power-law noise with a spectral index (slope) of -1.03 &#177; 0.06. The estimated power-law noise corresponds to a flicker noise process that dominates the white noise; the resulting crossover period between both noise types is only 4 days and therefore, it is hardly visible on the power spectrum.<br>
+					The estimated noise model is composed of 0.9 &#177; 0.1 mm of white noise at short periods and 4.6 &#177; 0.2 mm of power-law noise with a spectral index (slope) of -1.04 &#177; 0.07. The estimated power-law noise corresponds to a flicker noise process that dominates the white noise; the resulting crossover period between both noise types is only 4 days and therefore, it is hardly visible on the power spectrum.<br>
 					The estimated noise model allows obtaining a more accurate formal uncertainty of the linear trend by almost seventeen times, compared to an estimate assuming only white noise. 
 					</p>
 				</div>
@@ -244,9 +244,11 @@ function showSARIpage() {
 				<div class="w3-container w3-padding underFigure">
 					<p>
 					Black: weekly-averaged height change estimates at the NAUS00BRA (Brazil) station from the <a href="https://www.poleterresolide.fr/geodesy-plotter/#/station/NAUS00BRA" target="_blank">SPOTGINS solution</a>.<br>
-					Red: fitted Kalman filter model composed of a time-variable linear trend and a time-variable annual signal of amplitude between 2.1 and 3.8 cm.<br>
+					Red: fitted Kalman filter model composed of a time-variable linear trend and a time-variable annual signal of amplitude between 1.8 and 4.1 cm.<br>
 					Yellow: low-pass filtered weekly height changes using the Vondrak smoother.<br>
 					Green: estimated monthly height changes at the same location from the GRACE NASA GSFC mascons solution obtained from the <a href="http://loading.u-strasbg.fr/index.php" target="_blank">EOST loading service</a>, for comparison purposes.<br>
+					While the GRACE estimated annual height changes at this site are in phase with the GNSS estimated annual height changes, their amplitudes do not match, being stronger for the GNSS height changes. Also the estimated interannual height variations are stronger for GNSS, with linear trend chages of &#177; 4 mm/year (not shown).<br>
+					Both features may be explained, on the one hand, by the low spatial resolution of the GRACE estimates that does not allow accounting for the spatial distribution of water around the GNSS station in detail. On the other hand, while most of the annual variation of the GNSS height estimates could be explained by hydrology loading, the GNSS position estimaes integrate many proceses not related to hydrology loading. Therefore, a perfect match of the estimated height changes between GNSS and GRACE is not expected.
 					</p>
 				</div>
 			</div>
@@ -257,8 +259,8 @@ function showSARIpage() {
 				<div class="w3-container w3-padding underFigure">
 					<p>
 					Black: weekly height differences between the GNSS position time series and the Kalman filter model shown in the top figure.<br>
-					The standard deviation of the differences is 3.5 mm and most of it is concentrated at periods ranging from 2 to 5 years. The time-variable linear trend component of the Kalman filter model effectively captures most of the series variability for periods longer than 5 years.<br>
-					Yellow: weekly height differences between the GNSS position time series and the Vondrak smoother shown in the top figure.
+					The standard deviation of the differences is 3.3 mm and most of it is concentrated at periods ranging from 2 to 5 years. The time-variable linear trend component of the Kalman filter model effectively captures most of the series variability for periods longer than about 5 years.<br>
+					Yellow: weekly height differences between the Vondrak smoother and the Kalman filter model shown in the top figure. This is equivalent to computing the Vondrak smoother with the residual series of the Kalman filter model (black).
 					</p>
 				</div>
 			</div>
@@ -300,7 +302,7 @@ function showSARIpage() {
 					However, the reduction of the series variability is not uniform, but concentrated in the frequency band extending from a few days to a few months. Reducing the variability at these periods facilitates the separation between uncorrelated <i>white</i> noise at short periods and time-correlated <i>flicker</i> noise at long periods, which otherwise would be evaluated as broadband power-law noise.
 					Changes in the flicker noise content of a series are particularly relevant because this type of noise drives the assessment of the formal uncertainties of the estimated model parameters, especially the linear trend.<br>
 					Overall, the predicted loading at this site reduces some of the estimated position variability at high frequencies, and that can help unveiling hidden features in the series, such as discontinuities or small periodic variations. However, it is clear that most of the series variability, including most of the prominent annual variation, is not explained by the current loading models.
-					The residual variability may be related to the limitations of the loading models to account for all the spatial and temporal mass variations, but also to other physical processes not related to mass loading, such as thermoelastic deformation, and propagated processing errors that can originate from the reference frame, orbit dynamics, atmospheric refraction, and the radiation pattern of the ground antenna, to name a few.
+					The residual variability may be related to the limitations of the loading models to account for all the spatial and temporal mass variations, specially for continental hydrology. In addition, the GNSS position estimates include other physical processes not related to mass loading, such as thermoelastic deformation of the groud and of the antenna mount. Finally, GNSS position estimates also include propagated processing errors that can originate from many sources: the reference frame, orbit dynamics, atmospheric refraction, and the radiation pattern of the ground antenna, to name a few.
 					</p>
 				</div>
 			</div>
@@ -322,7 +324,7 @@ function showSARIpage() {
 					Black: daily UT1-UTC differences in milliseconds from the C0414 series of the <a href="https://datacenter.iers.org/eop.php" target="_blank">IERS combined Earth orientation parameter</a> solution.<br>
 					Each discontinuity in the series represents a leap second added to the UTC time to maintain synchronization with the Earth's irregular rotation speed.<br>
 					When the UT1-UTC differences remain stable around a constant value, it indicates that the Earth's rotation speed (given by UT1) matches the standard rotation speed of one revolution in 24 h (given by UTC). This is observed only around 2020 and during very short periods occurring with some regularity since 2000. The overall negative trend clearly shows that the Earth's rotation speed is generally slower than the standard speed, resulting in days slightly longer than 24 hours by a few milliseconds.<br>
-					Red: Kalman filter model composed of a time-variable linear trend and leap second offsets on the dates indicated in the IERS Bulletin C. These leap second offsets are fixed (not estimated) to their known value of 1000 milliseconds.<br>
+					Red: Kalman filter model composed of a time-variable linear trend and leap second offsets on the dates indicated by the IERS Bulletin C. These leap second offsets were tightly constrained to their known value of 1000 milliseconds.<br>
 					When the leap seconds are removed, the UT1-UTC series transforms into UT1-TAI series, which was then fitted with a time-variable linear trend. Changes in the UT1-TAI trend represent changes in the duration of the day (see the figure below).
 					</p>
 				</div>
@@ -333,12 +335,12 @@ function showSARIpage() {
 				</div>
 				<div class="w3-container w3-padding underFigure">
 					<p>
-					Black: the sign-reversed UT1-TAI time-variable linear trend estimates in ms/day from the Kalman fit of the top figure.<br>
-					The UT1-TAI rate with a reversed sign is known as the excess of length of day (LOD). Positive LOD values represent days longer than 24 hours in ms, and vice versa.<br>
+					Black: the sign-reversed UT1-TAI time-variable linear trend estimate, from the Kalman fit of the top figure, transformed from ms/year to ms/day units.<br>
+					The UT1-TAI rate with reversed sign is known as the excess of length of day (LOD). The zero value represents an Earth rotation of exactly 24 hours. A positive LOD value represents days longer than 24 hours in ms, and vice versa.<br>
 					Green: the daily LOD series in ms/day from the official IERS C0414 combined solution, for comparison.<br>
 					The seasonal trend variations in the UT1-TAI series were not properly accounted for by the a priori state variance and the process/observation noise ratio, so the Kalman filter takes some time to adjust.<br>
 					Yellow: low-pass filtered daily LOD series using the Vondrak smoother.<br>
-					While days have generally been longer than 24 h over the observed period, a negative trend in the LOD series suggests that the Earth's rotation is accelerating, resulting in shorter days closer to the standard duration of 24 h. In May 2020, the smoothed LOD series crossed into negative values, being the first time in the space geodesy era that the duration of the day is systematically shorter than 24 h.
+					While days have generally been longer than 24 hours over the observed period, a negative trend in the LOD series suggests that the Earth's rotation is accelerating, resulting in shorter days closer to the standard duration of 24 hours. In May 2020, the smoothed LOD series crossed into negative values, being the first time in the space geodesy era that the duration of the day is systematically shorter than 24 hours.
 					</p>
 				</div>
 			</div>
@@ -353,8 +355,8 @@ function showSARIpage() {
 				</div>
 				<div class="w3-container w3-padding underFigure">
 					<p>
-					Black: monthly mean sea-level series at the Brest station since 1807 obtained from the PSMSL server. This is probably the longest geodetic record in the world.<br>
-					Blue: inverse of the GIA vertical land motion extracted from the Caron and Ivins 2019 model: -1.03 mm/yr (subsidence).<br>
+					Black: monthly mean sea-level series at the Brest station since 1807 obtained from the PSMSL server. This is probably the world's longest geodetic record that is still in operation.<br>
+					Blue: sign-reversed GIA vertical land motion extracted from the Caron and Ivins 2019 model: -1.03 mm/yr (subsidence).<br>
 					The predicted GIA subsidence rate agrees well with multiple estimates of GNSS vertical land motion rates, with nearly 20 years of observations at this site, and with an average value of -0.78 &#177; 0.17 mm/yr (not shown).<br>
 					Red: least-squares fit of a quadratic polynomial showing an average sea-level rise of 1.0 &#177; 0.1 mm/yr and an acceleration of 1.38 &#177; 0.04 mm/yr/century.<br>
 					Due to this acceleration, the relative or coastal sea level is currently rising at approximately 2.5 mm/yr today, and could potentially exceed 5 mm/yr within the next 200 years if the estimated acceleration value remains unchanged.
