@@ -422,8 +422,9 @@ function showSARIpage() {
 	<p>
 	Note that there is a finite number of simultaneous connections that can be run by the public online server, which depends on the user load.<br>
 	For standard user loads (i.e., excluding noise analysis with spectral index, automatic discontinuity search, and large wavelet analysis), up to 24 parallel users can be sustained, possibly a few more than that. However, it is not very clear how many simultaneous connections the online server allows from the same IP address; that limit may be set somewhere between 10 and 15.<br>
-	For example, if you're using SARI in a class with many people and you start getting connection refusals, you should change your IP address (for instance, connecting through a smartphone hotspot).
-	Another option is to run SARI from a local server on your premises using your own resources (RStudio, Shiny Server or Docker).
+	For example, if you're using SARI in a class with many people and you start getting connection refusals, you should change your IP address (for instance, connecting through a smartphone hotspot).<br>
+	It is also possible that the remote server is being used by other people at the same time; first come, first served.<br>
+	Another option is to make SARI available from a local server on your premises using your own resources (RStudio, Shiny Server or Docker).
 	</p>
 	<p>
 	If you have a public web server that distributes GNSS series, or any other type of series, and want to allow users to analyze them directly on SARI with just a button click, simply add a link on your web server pointing to this address:<br>
@@ -470,6 +471,7 @@ function showSARIpage() {
 
 </body>
 </html>
+
 
 
 
