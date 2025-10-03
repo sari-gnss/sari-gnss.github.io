@@ -409,9 +409,10 @@ function showSARIpage() {
 <div id="run" class="w3-container w3-section">
 	<h2>How to run SARI?</h2>
 	<p>
-	SARI can be run free of charge on the web browser of any platform, except mobile devices.<br>
+	SARI can be run free of charge on the web browser of any platform (not recommended on mobile devices).<br>
 	The online access is available anytime and anywhere on a desktop with Internet connection.<br>
-	Alternatively, an offline access is possible by running the <a href="https://hub.docker.com/r/alvarosg/sari" target="_blank">app's container</a> or after installing the <a href="https://github.com/alvarosantamariagomez/sari" target="_blank">source code</a> and its environment.
+	The access to the online server is supported by the <a href="https://renag.resif.fr/en/" target="_blank">National Permanent GNSS Network (RENAG)</a>.<br>
+	Alternatively, an offline access is possible by running the <a href="https://hub.docker.com/r/alvarosg/sari" target="_blank">app's Docker container</a>, or after installing the <a href="https://github.com/alvarosantamariagomez/sari" target="_blank">source code</a> and its environment, on your machine (Linux, Windows or MacOS).<br>
 	</p>
 	<div class="w3-hide-medium w3-hide-small">
 		<p>
@@ -419,17 +420,15 @@ function showSARIpage() {
 		</p>
 	</div>
 	<p>
-	The access to the online server is supported by the <a href="https://renag.resif.fr/en/" target="_blank">National Permanent GNSS Network (RENAG)</a>.
-	</p>
-	<p>
-	There is a finite number of simultaneous connections that can be run by the online server, which depends on the user load.<br>
+	Note that there is a finite number of simultaneous connections that can be run by the public online server, which depends on the user load.<br>
 	For standard user loads (i.e., excluding noise analysis with spectral index, automatic discontinuity search, and large wavelet analysis), up to 24 parallel users can be sustained, possibly a few more than that. However, it is not very clear how many simultaneous connections the online server allows from the same inbound IP address; that limit may be set somewhere between 10 and 15.<br>
-	If you're using SARI in a class with many people and you start getting connection refusals, you should change your outbound IP address (for instance, connect through a smartphone hotspot) or use SARI on a local server (RStudio or Docker).
+	For example, if you're using SARI in a class with many people and you start getting connection refusals, you should change your IP address (for instance, connecting through a smartphone hotspot).
+	Another option is to run SARI from a local server on your premises using your own resources (RStudio, Shiny Server or Docker).
 	</p>
 	<p>
-	If you have a public web server that distributes GNSS series, or any other type, and want users to analyze them on SARI with just a button click, simply add a link to your web server pointing to this address:<br>
+	If you have a public web server that distributes GNSS series, or any other type of series, and want to allow users to analyze them directly on SARI with just a button click, simply add a link on your web server pointing to this address:<br>
 	<code class="w3-codespan w3-section" style="word-wrap: break-word;">https://alvarosg.shinyapps.io/sari?server=MyServer&product=MyProduct&series=MyStation</code><br>
-	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that need to be implemented on SARI<span class="w3-hide-medium w3-hide-small"> (see the available servers below with the remote series selector)</span>.
+	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that must be defined in the SARI code beforehand <span class="w3-hide-medium w3-hide-small"> (see the available servers already implemented in SARI with the remote series selector below)</span>.
 	</p>
 	<p>
 	The following GNSS web servers have already implemented SARI on their interface:
@@ -446,14 +445,14 @@ function showSARIpage() {
 		</p>
 		<ul>
 			<li>
-				click on the button below to open a new online session on your web browser and then upload a series from your computer:<br>
+				click on the button below to open an online session on your web browser and then upload a series from your computer:<br>
 				<a href="https://alvarosg.shinyapps.io/sari" target="_blank" class="w3-panel w3-padding w3-button w3-black w3-round-large">
 				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
 				Start a session
 				</a>
 			</li>
 			<li>
-				or click on the button below to load the remote series selector (the loading of the app takes a few seconds), then choose a server, product, and station, and open it on a new online session on your web browser:<br>
+				or click on the button below to load the remote series selector (the loading takes a few seconds), then choose a server, product, and station, and open it on an online session on your web browser:<br>
 				<a href="https://alvarosg.shinyapps.io/SARIpage/" target="SARIpage" onclick="showSARIpage();" class="w3-panel w3-padding w3-button w3-black w3-round-large">
 				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
 				Remote series selector
@@ -471,6 +470,7 @@ function showSARIpage() {
 
 </body>
 </html>
+
 
 
 
