@@ -148,6 +148,21 @@ function showSARIpage() {
 		event.preventDefault();
 	}
 }
+const fileUrl = "https://cancerbero.sytes.net/sari_series.txt";
+// Fetch the file
+fetch(fileUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text(); // Read as plain text
+    })
+    .then(data => {
+        document.getElementById("numSeries").textContent = data;
+    })
+    .catch(error => {
+        document.getElementById("numSeries").textContent = "Error: " + error.message;
+    });
 </script>
 </head>
 <body class="w3-light-grey">
@@ -182,13 +197,14 @@ function showSARIpage() {
 	SARI is an open-source R/Shiny app that makes it easy for anyone to analyze discrete time series data interactively on a web browser.<br>
 	The app is designed with a user-friendly interface, making it simple to use.<br>
 	SARI focuses on GNSS position time series, but it can also be used with other types of time series data.<br>
-	This includes tide gauge records, zenith tropospheric delay series, surface mass loading model predictions, gravimetry or Earth rotation series, and more. 
+	This includes tide gauge records, zenith tropospheric delay series, surface mass loading model predictions, gravimetry or Earth rotation series, and more.<br>
+	Number of series already analyzed on SARI (online access only): <span id="numSeries" style="color: gray; font-weight: bold; letter-spacing: 2px;"></span>
 	</p>
 </div>
 
 <!-- Examples -->
 <div id="examples" class="w3-container w3-section">
-	<h2>Examples of series analyses with SARI</h2>
+	<h2>Examples of time series analysis with SARI</h2>
 </div>
 <div class="w3-container w3-section w3-row w3-center" style="width: 100%; margin: auto;">
 	<a href="#" id="link1" onclick="showHide('example1'); selectLink('link1'); scroll2('examples')" class="w3-third w3-padding-large">Example 1<br>GNSS & earthquakes</a>
@@ -472,7 +488,6 @@ function showSARIpage() {
 
 </body>
 </html>
-
 
 
 
