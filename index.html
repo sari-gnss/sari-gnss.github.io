@@ -247,7 +247,7 @@ fetch(fileUrl)
 			</div>
 			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
 				Do the analysis of this example here<br>
-				<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=CONZ00CHL" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=CONZ00CHL</a>
+				<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=CONZ00CHL" rel="nofollow noopener" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=CONZ00CHL</a>
 			</div>
 	</div>
 </div>
@@ -283,7 +283,7 @@ fetch(fileUrl)
 			</div>
 			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
 			Do the analysis of this example here<br>
-			<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=NAUS00BRA" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=NAUS00BRA</a>
+			<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=NAUS00BRA" rel="nofollow noopener" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=NAUS00BRA</a>
 			</div>
 	</div>
 </div>
@@ -325,7 +325,7 @@ fetch(fileUrl)
 			</div>
 			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
 			Do the analysis of this example here<br>
-			<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=YELL00CAN" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=YELL00CAN</a>
+			<a href="https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=YELL00CAN" rel="nofollow noopener" target="_blank">https://alvarosg.shinyapps.io/sari?server=FORMATERRE&product=SPOTGINS_POS&station=YELL00CAN</a>
 			</div>
 	</div>
 </div>
@@ -394,7 +394,7 @@ fetch(fileUrl)
 			</div>
 			<div class="w3-panel w3-padding w3-light-grey w3-bottombar w3-border-grey w3-border w3-hide-medium w3-hide-small">
 			Do the analysis of this example here<br>
-			<a href="https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1" target="_blank">https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1</a>
+			<a href="https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1" rel="nofollow noopener" target="_blank">https://alvarosg.shinyapps.io/sari?server=PSMSL&product=RLR&station=1</a>
 			</div>
 	</div>
 </div>
@@ -444,9 +444,9 @@ fetch(fileUrl)
 	Another option is to make SARI available from a local server on your premises using your own resources (RStudio, Shiny Server or Docker).
 	</p>
 	<p>
-	If you have a public web server that distributes GNSS series, or any other type of series, and want to allow users to analyze them directly on SARI with just a button click, simply add a link on your web server pointing to this address:<br>
-	<code class="w3-codespan w3-section" style="word-wrap: break-word;">https://alvarosg.shinyapps.io/sari?server=MyServer&product=MyProduct&series=MyStation</code><br>
-	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are variables that must be defined in the SARI code beforehand <span class="w3-hide-medium w3-hide-small"> (see the available servers already implemented in SARI with the remote series selector below)</span>.
+	If you have a public web server that distributes GNSS series, or any other type of series, and want to allow users to analyze them directly on SARI with just a button click, you could simply add a link on your web server pointing to an URL looking like this exemple:<br>
+	<code class="w3-codespan w3-section" style="word-wrap: break-word;">https://theTrueSARIpublicURL/sari?server=MyServer&product=MyProduct&series=MyStation</code><br>
+	where <code class="w3-codespan w3-section">MyServer</code>, <code class="w3-codespan w3-section">MyProduct</code> and <code class="w3-codespan w3-section">MyStation</code> are the parameters of your series that must be defined in the SARI code beforehand <span class="w3-hide-medium w3-hide-small"> (see the available servers and products already implemented in SARI with the remote series selector below)</span>.
 	</p>
 	<p>
 	The following GNSS web servers have already implemented SARI on their interface:
@@ -464,14 +464,14 @@ fetch(fileUrl)
 		<ul>
 			<li>
 				click on the button below to open an online session on your web browser and then upload a series from your computer:<br>
-				<a href="https://alvarosg.shinyapps.io/sari" target="_blank" class="w3-panel w3-padding w3-button w3-black w3-round-large">
+				<a href="https://alvarosg.shinyapps.io/sari" rel="nofollow noopener" target="_blank" class="w3-panel w3-padding w3-button w3-black w3-round-large">
 				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
 				Start a session
 				</a>
 			</li>
 			<li>
 				or click on the button below to load the remote series selector (the loading takes a few seconds), then choose a server, product, and station, and open it on an online session on your web browser:<br>
-				<a href="https://alvarosg.shinyapps.io/SARIpage/" target="SARIpage" onclick="showSARIpage();" class="w3-panel w3-padding w3-button w3-black w3-round-large">
+				<a href="https://alvarosg.shinyapps.io/SARIpage/" rel="nofollow noopener" target="SARIpage" onclick="showSARIpage();" class="w3-panel w3-padding w3-button w3-black w3-round-large">
 				<img src="favicon.png" alt="SARI logo" style="vertical-align: -10%;" height="16px"/>
 				Remote series selector
 				</a>
